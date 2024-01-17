@@ -1,21 +1,18 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import logo from "./logo.svg";
-
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profile/Profile";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>HELLO Query-Quest</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p>Powerded by MHK</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar></Navbar>
+        <Routes>
+          <Route exact path="/" Component={Home}></Route>
+          <Route exact path="/profiles/:profileId" Component={Profile}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
