@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../Home/Home.css";
 import Post from "../Post/Post";
 
 function Home() {
