@@ -1,5 +1,12 @@
 .postContainer {
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
+  border-width: 1px;
+  box-shadow: 4;
+  border-color: rgb(237, 232, 232);
+  /* border-style: solid; */
+  display: flex; /* Flex container olarak ayarla */
+  justify-content: center; /* Yatayda ortala */
+  align-items: center; /* Dikeyde ortala */
+  height: 30vh; /* Sayfa yüksekliğinin tamamını kaplaması için */
+  flex-wrap: wrap;
+  text-align: center;
 }
