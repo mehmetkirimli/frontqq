@@ -1,5 +1,5 @@
 .container {
   display: block;
-  text-align: center;
+  flex-wrap: wrap;
   justify-content: space-around;
 }

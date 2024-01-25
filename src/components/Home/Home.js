@@ -32,9 +32,6 @@ function Home() {
       <div className="container">
         <p> HOME PAGE </p>
 
-        <br></br>
-        <br></br>
-
         {postList.map((post) => (
           <Post key={post.id} title={post.title} text={post.text}></Post>
         ))}

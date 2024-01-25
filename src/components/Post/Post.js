@@ -1,12 +1,17 @@
 import { Box, Button, Card, CardBody, CardFooter, CardHeader, Flex, IconButton, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { BiChat, BiShare } from "react-icons/bi";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa"; // FaHeart, Font Awesome kalp ikonudur
+import CardSettings from "../Menu/Menu";
 import "../Post/Post.css";
 
 function Post(props) {
   const { title, text } = props;
+  const [isCardSettingsOpen, setCardSettingsOpen] = useState(false);
+
+  const handleToggleDotsClick = () => {
+    setCardSettingsOpen((prev) => !prev);
+  };
 
   return (
     <div className="postContainer">
@@ -29,7 +34,7 @@ function Post(props) {
                   <p style={{ fontSize: "xs", color: "#808080" }}>@lefoonten</p>
                 </Box>
               </Flex>
-              <IconButton variant="ghost" marginEnd="-20" marginTop="-4" colorScheme="green" aria-label="See menu" icon={<BsThreeDotsVertical />} />
+              <IconButton variant="ghost" marginEnd="-20" marginTop="-4" colorScheme="green" aria-label="See menu" icon={<CardSettings />} onClick={handleToggleDotsClick} />
             </Flex>
           </CardHeader>
 
