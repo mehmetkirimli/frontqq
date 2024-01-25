@@ -1,12 +1,15 @@
-import { Box, Button, Card, CardBody, CardFooter, CardHeader, Flex, IconButton, Text } from "@chakra-ui/react";
+// import { AiOutlineUser } from "@chakra-ui/icons";
+import { Avatar, Box, Button, Card, CardBody, CardFooter, CardHeader, Flex, IconButton, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BiChat, BiShare } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa"; // FaHeart, Font Awesome kalp ikonudur
+import { Link as RouterLink } from "react-router-dom";
+
 import CardSettings from "../Menu/Menu";
 import "../Post/Post.css";
 
 function Post(props) {
-  const { title, text } = props;
+  const { title, text, userId, username } = props;
   const [isCardSettingsOpen, setCardSettingsOpen] = useState(false);
 
   const handleToggleDotsClick = () => {
@@ -28,10 +31,13 @@ function Post(props) {
           <CardHeader flexDirection="column">
             <Flex spacing="1" p="1">
               <Flex flex="1" p="1" gap="4" alignItems="center" flexWrap="wrap" marginTop="-6">
-                {/* <Avatar name="Segun Adebayo" src="https://bit.ly/sage-adebayo" /> */}
+                <RouterLink to={"/profiles/" + userId} style={{ borderRadius: "50%", boxShadow: "0 0 0 2px rgba(1, 2, 1, 0.2)" }}>
+                  <Avatar size="full" name={username} />
+                </RouterLink>
+
                 <Box style={{ display: "flex" }}>
-                  <p style={{ fontSize: "xs", marginRight: "8px", color: "black" }}>lefo</p>
-                  <p style={{ fontSize: "xs", color: "#808080" }}>@lefoonten</p>
+                  <p style={{ fontSize: "xs", marginRight: "8px", color: "black" }}>{username}</p>
+                  <p style={{ fontSize: "xs", color: "#808080" }}>@{userId}</p>
                 </Box>
               </Flex>
               <IconButton variant="ghost" marginEnd="-20" marginTop="-4" colorScheme="green" aria-label="See menu" icon={<CardSettings />} onClick={handleToggleDotsClick} />

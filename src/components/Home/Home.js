@@ -31,7 +31,7 @@ function Home() {
     return (
       <div className="container">
         {postList.map((post) => (
-          <Post key={post.id} title={post.title} text={post.text}></Post>
+          <Post key={post.id} title={post.title} text={post.text} userId={post.profile_id} username={post.username}></Post>
         ))}
       </div>
     );
