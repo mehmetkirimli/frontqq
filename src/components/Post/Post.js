@@ -1,7 +1,8 @@
-import { Box, Button, Card, CardBody, CardFooter, CardHeader, Flex, Heading, IconButton, Text } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, CardFooter, CardHeader, Flex, IconButton, Text } from "@chakra-ui/react";
 import React from "react";
-import { BiChat, BiLike, BiShare } from "react-icons/bi";
+import { BiChat, BiShare } from "react-icons/bi";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa"; // FaHeart, Font Awesome kalp ikonudur
 import "../Post/Post.css";
 
 function Post(props) {
@@ -15,57 +16,50 @@ function Post(props) {
         borderRadius="lg"
         overflow="hidden"
         boxShadow="lg"
-        width="500px" /* İstediğiniz genişliği belirleyebilirsiniz */
+        width="650px" /* İstediğiniz genişliği belirleyebilirsiniz */
         margin="10px" /* İstediğiniz boşluk miktarını belirleyebilirsiniz */
       >
-        <Card maxW="md">
+        <Card maxW="xl" p="5">
           <CardHeader flexDirection="column">
-            <Flex spacing="1">
-              <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
+            <Flex spacing="1" p="1">
+              <Flex flex="1" p="1" gap="4" alignItems="center" flexWrap="wrap" marginTop="-8">
                 {/* <Avatar name="Segun Adebayo" src="https://bit.ly/sage-adebayo" /> */}
-
-                <Box>
-                  <Heading size="sm">Kullanıcı Adı Soyadı</Heading>
-                  <Text>@username</Text>
-                  <Text>{title}</Text>
+                <Box style={{ display: "flex" }}>
+                  <p style={{ fontSize: "xs", marginRight: "8px", color: "black" }}>lefo</p>
+                  <p style={{ fontSize: "xs", color: "#808080" }}>@lefoonten</p>
                 </Box>
               </Flex>
-              <IconButton variant="ghost" colorScheme="gray" aria-label="See menu" icon={<BsThreeDotsVertical />} />
+              <IconButton variant="ghost" marginEnd="-20" marginTop="-6" colorScheme="green" aria-label="See menu" icon={<BsThreeDotsVertical />} />
             </Flex>
           </CardHeader>
 
           {/* ---------------------------------------------------------------------------------------------------------- */}
 
-          <CardBody textAlign="center" justifyContent="center">
-            <Text alignItems="center">{text}</Text>
+          <CardBody textAlign="left">
+            <Text fontSize="sm">{text} tt</Text>
           </CardBody>
 
           {/* ---------------------------------------------------------------------------------------------------------- */}
 
-          {/* <Image
-          objectFit="cover"
-          src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-          alt="Chakra UI"
-        /> */}
-
-          {/* ---------------------------------------------------------------------------------------------------------- */}
-
           <CardFooter
+            p="6"
+            marginEnd="-20"
             justify="space-between"
+            alignItems="center"
             flexWrap="wrap"
             sx={{
               "& > button": {
-                minW: "136px",
+                minW: "120px",
               },
             }}
           >
-            <Button flex="1" variant="ghost" leftIcon={<BiLike />}>
+            <Button flex="1" marginBottom="-8" variant="ghost" leftIcon={<FaHeart color="red" />} color="gray">
               Like
             </Button>
-            <Button flex="1" variant="ghost" leftIcon={<BiChat />}>
+            <Button flex="1" marginBottom="-8" variant="ghost" leftIcon={<BiChat color="green" />} color="gray">
               Comment
             </Button>
-            <Button flex="1" variant="ghost" leftIcon={<BiShare />}>
+            <Button flex="1" marginBottom="-8" variant="ghost" leftIcon={<BiShare color="green" />} color="gray">
               Share
             </Button>
           </CardFooter>

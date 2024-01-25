@@ -1,6 +1,6 @@
 .postContainer {
   border-width: 1px;
-  box-shadow: 4;
+  box-shadow: 0 0 4px rgba(190, 164, 164, 0.679);
   border-color: rgb(237, 232, 232);
   /* border-style: solid; */
   display: flex; /* Flex container olarak ayarla */

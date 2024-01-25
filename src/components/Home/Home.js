@@ -36,7 +36,7 @@ function Home() {
         <br></br>
 
         {postList.map((post) => (
-          <Post key={post.id} title={post.text} text={Post.text}></Post>
+          <Post key={post.id} title={post.title} text={post.text}></Post>
         ))}
       </div>
     );
