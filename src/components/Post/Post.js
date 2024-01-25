@@ -22,20 +22,20 @@ function Post(props) {
         <Card maxW="xl" p="5">
           <CardHeader flexDirection="column">
             <Flex spacing="1" p="1">
-              <Flex flex="1" p="1" gap="4" alignItems="center" flexWrap="wrap" marginTop="-8">
+              <Flex flex="1" p="1" gap="4" alignItems="center" flexWrap="wrap" marginTop="-6">
                 {/* <Avatar name="Segun Adebayo" src="https://bit.ly/sage-adebayo" /> */}
                 <Box style={{ display: "flex" }}>
                   <p style={{ fontSize: "xs", marginRight: "8px", color: "black" }}>lefo</p>
                   <p style={{ fontSize: "xs", color: "#808080" }}>@lefoonten</p>
                 </Box>
               </Flex>
-              <IconButton variant="ghost" marginEnd="-20" marginTop="-6" colorScheme="green" aria-label="See menu" icon={<BsThreeDotsVertical />} />
+              <IconButton variant="ghost" marginEnd="-20" marginTop="-4" colorScheme="green" aria-label="See menu" icon={<BsThreeDotsVertical />} />
             </Flex>
           </CardHeader>
 
           {/* ---------------------------------------------------------------------------------------------------------- */}
 
-          <CardBody textAlign="left">
+          <CardBody textAlign="left" marginStart="2">
             <Text fontSize="sm">{text} tt</Text>
           </CardBody>
 
@@ -44,6 +44,7 @@ function Post(props) {
           <CardFooter
             p="6"
             marginEnd="-20"
+            marginBottom="-2"
             justify="space-between"
             alignItems="center"
             flexWrap="wrap"
