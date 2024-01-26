@@ -11,9 +11,14 @@ import "../Post/Post.css";
 function Post(props) {
   const { title, text, userId, username } = props;
   const [isCardSettingsOpen, setCardSettingsOpen] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   const handleToggleDotsClick = () => {
     setCardSettingsOpen((prev) => !prev);
+  };
+
+  const handleLike = () => {
+    setLiked(!liked);
   };
 
   return (
@@ -65,7 +70,7 @@ function Post(props) {
               },
             }}
           >
-            <Button flex="1" marginBottom="-8" variant="ghost" leftIcon={<FaHeart color="red" />} color="gray">
+            <Button flex="1" marginBottom="-8" variant="ghost" leftIcon={<FaHeart color={liked ? "red" : "gray"} />} color="gray" onClick={handleLike}>
               Like
             </Button>
             <Button flex="1" marginBottom="-8" variant="ghost" leftIcon={<BiChat color="green" />} color="gray">
