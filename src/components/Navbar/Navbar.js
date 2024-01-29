@@ -6,12 +6,15 @@ const Navbar = () => {
   // react-router-dom modülünden useLocation hook'u kullanılarak şu anki sayfanın konumu alınıyor.
   const location = useLocation();
   // Örnek bir profileId tanımlanıyor (bu kısım değişcek)
-  let profileId = 3;
+  let profileId = 3; // login olan kullanıcının profili olmalı TODO ilerde olacak.
 
   return (
     <Box bg="teal" p={4} boxShadow="md">
       <Flex alignItems="center" maxW="1200px" mx="auto">
-        <Heading color="black">QueryQuest</Heading>
+        <Heading color="black" mr={5}>
+          QueryQuest
+        </Heading>
+        <Heading color="black">New Post</Heading>
         {/* TODO QQ Logosu Gelicek  */}
         <Spacer />
         {/* Spacer bileşeni ile boş bir alan eklenerek diğer elemanların sağa yaslanması sağlanıyor. */}
