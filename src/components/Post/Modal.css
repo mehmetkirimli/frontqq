@@ -1,0 +1,33 @@
+.modalContainer {
+  border-width: 1px;
+  box-shadow: 0 0 4px rgba(190, 164, 164, 0.679);
+  border-color: rgb(237, 232, 232);
+  /* border-style: solid; */
+  display: flex; /* Flex container olarak ayarla */
+  justify-content: center; /* Yatayda ortala */
+  align-items: center; /* Dikeyde ortala */
+  height: 30vh; /* Sayfa yüksekliğinin tamamını kaplaması için */
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: bisque;
+  width: max-content;
+  height: max-content;
+}
+
+/* Modal'ın arka plan rengini düzenle */
+.chakra-modal__content {
+  background: rgb(151, 33, 33);
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  width: 300px; /* İstediğiniz genişliği ayarlayın */
+  max-width: 80%; /* Maksimum genişliği ayarlayın */
+  padding: 16px; /* İçerik içi boşluğu belirleyin */
+}
+
+/* Modal'ın sayfa üzerine gelmesini düzenle */
+.chakra-modal__overlay {
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

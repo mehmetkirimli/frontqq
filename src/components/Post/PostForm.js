@@ -1,4 +1,8 @@
-function SizeExample() {
+// ModalExample.js
+import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import React from "react";
+
+function PostForm() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState("md");
 
@@ -7,8 +11,7 @@ function SizeExample() {
     onOpen();
   };
 
-  const sizes = ["xl"];
-  //   "xs", "sm", "md", "lg", "xl", "full";
+  const sizes = ["xs"];
 
   return (
     <>
@@ -22,7 +25,8 @@ function SizeExample() {
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Lorem count={2} />
+            {/* Burada modal içeriği olacak */}
+            <p>Modal içeriği</p>
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
@@ -32,3 +36,5 @@ function SizeExample() {
     </>
   );
 }
+
+export default PostForm;
