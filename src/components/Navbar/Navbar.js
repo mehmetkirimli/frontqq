@@ -3,7 +3,6 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import ModalForm from "../Post/ModalForm";
-import PostForm from "../Post/PostForm"; // PostForm'u içe aktarıyoruz
 
 const Navbar = () => {
   const location = useLocation();
@@ -18,7 +17,6 @@ const Navbar = () => {
         <Spacer />
         <ModalForm></ModalForm>
         <Spacer />
-        <PostForm /> {/* PostForm'u çağırıyoruz */}
         {/* TODO QQ Logosu Gelicek  */}
         <Spacer />
         <Box display={{ base: "none", md: "block" }}>

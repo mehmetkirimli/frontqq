@@ -1,33 +1,120 @@
+/* Modal Container */
 .modalContainer {
-  border-width: 1px;
-  box-shadow: 0 0 4px rgba(190, 164, 164, 0.679);
-  border-color: rgb(237, 232, 232);
-  /* border-style: solid; */
-  display: flex; /* Flex container olarak ayarla */
-  justify-content: center; /* Yatayda ortala */
-  align-items: center; /* Dikeyde ortala */
-  height: 30vh; /* Sayfa yüksekliğinin tamamını kaplaması için */
-  flex-wrap: wrap;
-  text-align: center;
-  background-color: bisque;
+  justify-content: center;
   width: max-content;
   height: max-content;
 }
 
-/* Modal'ın arka plan rengini düzenle */
+/* Modal Content */
 .chakra-modal__content {
-  background: rgb(151, 33, 33);
-  border-radius: 8px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  width: 300px; /* İstediğiniz genişliği ayarlayın */
-  max-width: 80%; /* Maksimum genişliği ayarlayın */
-  padding: 16px; /* İçerik içi boşluğu belirleyin */
+  align-items: center; /* Dikeyde ortala */
+  justify-content: center; /* Yatayda ortala */
+  text-align: center;
+  background: rgba(173, 201, 188, 0.983);
+  border-radius: 10px;
+  box-shadow: 0px 4px 16px rgba(230, 231, 236, 0.616);
+  height: 300px;
+  max-height: 35%;
+  width: 1000px; /* İstediğiniz genişliği ayarlayın */
+  max-width: 40%; /* Maksimum genişliği ayarlayın */
+  padding: 1px; /* İçerik içi boşluğu belirleyin */
+  left: 435px;
+  top: 150px;
 }
 
 /* Modal'ın sayfa üzerine gelmesini düzenle */
 .chakra-modal__overlay {
   background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
+  display: flex; /* Flex container olarak ayarla */
+  align-items: center; /* Dikeyde ortala */
   justify-content: center;
+  backdrop-filter: blur(5px); /* Blur efekti ekle, istediğiniz miktarı ayarlayabilirsiniz */
+}
+
+/* Modal Container Blur Efekti */
+.modalContainer.blurred {
+  filter: blur(5px); /* Blur efekti, istediğiniz miktarı ayarlayabilirsiniz */
+}
+
+/* Modal Header */
+.chakra-modal__header {
+  background-color: #3182ce; /* veya istediğiniz başlık rengi */
+  color: white;
+  padding: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Modal Body */
+.chakra-modal__body {
+  padding: 1rem;
+}
+
+/* Form Label */
+.chakra-form__label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Input */
+.chakra-input {
+  width: 400px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Form Helper Text */
+.chakra-form__helper-text {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* Modal Footer */
+.chakra-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Button */
+.chakra-button {
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button Hover */
+.chakra-button:hover {
+  background-color: #2c5282;
+}
+
+/* Custom style for Textarea */
+.chakra-textarea {
+  width: 500px;
+  min-height: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical; /* Dikey boyutlandırmaya izin ver */
+  transition: border-color 0.3s ease;
+}
+
+/* Hover effect */
+.chakra-textarea:hover {
+  border-color: #3182ce; /* veya istediğiniz bir renk */
+}
+
+/* Focus effect */
+.chakra-textarea:focus {
+  outline: none;
+  border-color: #24b93f; /* veya istediğiniz bir renk */
+  box-shadow: 0 0 5px rgba(49, 130, 206, 0.5); /* istediğiniz bir gölge rengi */
 }

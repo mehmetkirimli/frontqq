@@ -1,10 +1,15 @@
 // components/ModalForm.js
 
-import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
+import { Button, FormControl, FormHelperText, FormLabel, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea, useDisclosure } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "../Post/Modal.css";
 
-const ModalForm = ({ isOpen, onClose }) => {
+const ModalForm = () => {
+  const [isBackdropBlurred, setIsBackdropBlurred] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [input, setInput] = useState("");
+  const isError = input === "";
+  const [size, setSize] = React.useState("sm");
   const [formData, setFormData] = useState({
     // Form verileriniz için gerekli state'leri burada tanımlayın
     date: "",
@@ -12,6 +17,19 @@ const ModalForm = ({ isOpen, onClose }) => {
     username: "",
     email: "",
   });
+
+  const handleSizeClick = (newSize) => {
+    setSize(newSize);
+    onOpen();
+    setIsBackdropBlurred(true);
+  };
+
+  const handleClose = () => {
+    onClose();
+    setIsBackdropBlurred(false);
+  };
+
+  const sizes = ["lg"];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,28 +47,45 @@ const ModalForm = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="modalContainer">
+    <div className={`modalContainer ${isBackdropBlurred ? "blurred" : ""}`}>
+      {sizes.map((size) => (
+        <Button onClick={() => handleSizeClick(size)} key={size} m={4}>
+          {" "}
+          {`New Post`}
+        </Button>
+      ))}
+      {/* ----------------------------------------------------------------------------------------------------------- */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered motionPreset="slideInBottom" zIndex={10}>
-        <ModalOverlay />
+        {/* <ModalOverlay /> */}
         <ModalContent>
-          <ModalHeader>Form</ModalHeader>
+          {/* ----------------------------------------------------------------------------------------------------------- */}
+
+          <ModalHeader>Q & Q</ModalHeader>
+
+          {/* ----------------------------------------------------------------------------------------------------------- */}
+
           <ModalBody>
+            {/* ----------------------------------------------------------------------------------------------------------- */}
+
             <FormControl>
-              <FormLabel>Name</FormLabel>
-              <Input type="text" name="name" value={formData.name} onChange={handleInputChange} />
+              <FormLabel>New Quest</FormLabel>
+              <Textarea placeholder="Here is a sample placeholder" name="name" value={formData.name} onChange={handleInputChange} />
+              <FormHelperText>En az 1 en fazla 255 karakter</FormHelperText>
             </FormControl>
-            <FormControl mt={4}>
-              <FormLabel>Email</FormLabel>
-              <Input type="email" name="email" value={formData.email} onChange={handleInputChange} />
-            </FormControl>
+
+            {/* ----------------------------------------------------------------------------------------------------------- */}
           </ModalBody>
+
+          {/* ----------------------------------------------------------------------------------------------------------- */}
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
               Gönder
             </Button>
-            <Button onClick={onClose}>Kapat</Button>
+            <Button onClick={handleClose}>Kapat</Button>
           </ModalFooter>
+
+          {/* ----------------------------------------------------------------------------------------------------------- */}
         </ModalContent>
       </Modal>
     </div>
