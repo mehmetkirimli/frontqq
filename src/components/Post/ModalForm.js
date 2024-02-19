@@ -33,6 +33,7 @@ const ModalForm = (props) => {
     onClose();
     setIsBackdropBlurred(false);
     setIsSent(false);
+    formData.name = "";
   };
 
   const sizes = ["lg"];
@@ -43,11 +44,13 @@ const ModalForm = (props) => {
       ...prevData,
       [name]: value,
     }));
+    setIsSent(false);
   };
 
   const handleSubmit = () => {
     savePost();
     setIsSent(true);
+    formData.name = "";
   };
   const savePost = async () => {
     try {
@@ -58,7 +61,7 @@ const ModalForm = (props) => {
         },
         body: JSON.stringify({
           text: formData.name,
-          profile_id: profile_id, // TODO Burada Profile Id bilgisi çekilmeli ve set edilmeli
+          profile_id: 5, // TODO Burada Profile Id bilgisi çekilmeli ve set edilmeli
         }),
       });
       if (response.ok) {
@@ -106,7 +109,7 @@ const ModalForm = (props) => {
           {/* ----------------------------------------------------------------------------------------------------------- */}
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+            <Button mr={3} onClick={handleSubmit} style={{ background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)", color: "white" }}>
               Gönder
             </Button>
             <Button onClick={handleClose}>Kapat</Button>
