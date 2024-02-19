@@ -2,7 +2,6 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import ModalForm from "../Post/ModalForm";
 
 const Navbar = () => {
   const location = useLocation();
@@ -14,9 +13,6 @@ const Navbar = () => {
         <Heading color="black" mr={5}>
           QueryQuest
         </Heading>
-        <Spacer />
-        <ModalForm></ModalForm>
-        <Spacer />
         {/* TODO QQ Logosu Gelicek  */}
         <Spacer />
         <Box display={{ base: "none", md: "block" }}>

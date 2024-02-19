@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Home/Home.css";
+import ModalForm from "../Post/ModalForm";
 import Post from "../Post/Post";
 
 function Home() {
@@ -7,7 +8,7 @@ function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [postList, setPostList] = useState([]);
 
-  useEffect(() => {
+  const refreshPosts = () => {
     fetch("/posts/all")
       .then((res) => res.json())
       .then(
@@ -16,10 +17,15 @@ function Home() {
           setPostList(result.data); // postList'e result.data atandı.
         },
         (error) => {
+          console.log(error);
           setIsLoaded(true);
           setError(error);
         }
       );
+  };
+
+  useEffect(() => {
+    refreshPosts();
   }, []);
 
   if (error) {
@@ -30,6 +36,7 @@ function Home() {
     // console.log(postList);
     return (
       <div className="container">
+        <ModalForm profile_id={1} refreshPosts={refreshPosts}></ModalForm>
         {postList.map((post) => (
           <Post key={post.id} title={post.title} text={post.text} userId={post.profile_id} username={post.username}></Post>
         ))}

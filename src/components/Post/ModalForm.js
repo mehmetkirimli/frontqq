@@ -4,18 +4,23 @@ import { Button, FormControl, FormHelperText, FormLabel, Modal, ModalBody, Modal
 import React, { useState } from "react";
 import "../Post/Modal.css";
 
-const ModalForm = () => {
+const ModalForm = (props) => {
+  const { profile_id, refreshPosts } = props;
   const [isBackdropBlurred, setIsBackdropBlurred] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [input, setInput] = useState("");
   const isError = input === "";
   const [size, setSize] = React.useState("sm");
+  const [isSent, setIsSent] = useState(false);
+
   const [formData, setFormData] = useState({
     // Form verileriniz için gerekli state'leri burada tanımlayın
-    date: "",
+    // date: "",
+    id: "",
+    title: "",
     text: "",
-    username: "",
-    email: "",
+    profile_id: "",
+    // email: "",
   });
 
   const handleSizeClick = (newSize) => {
@@ -27,6 +32,7 @@ const ModalForm = () => {
   const handleClose = () => {
     onClose();
     setIsBackdropBlurred(false);
+    setIsSent(false);
   };
 
   const sizes = ["lg"];
@@ -40,10 +46,31 @@ const ModalForm = () => {
   };
 
   const handleSubmit = () => {
-    // Form gönderme işlemleri burada yapılabilir
-    console.log("Form Gönderildi:", formData);
-    // İsterseniz form gönderildikten sonra modal'ı kapatabilirsiniz
-    onClose();
+    savePost();
+    setIsSent(true);
+  };
+  const savePost = async () => {
+    try {
+      const response = await fetch("/posts/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          text: formData.name,
+          profile_id: profile_id, // TODO Burada Profile Id bilgisi çekilmeli ve set edilmeli
+        }),
+      });
+      if (response.ok) {
+        console.log("Post başarıyla oluşturuldu");
+      } else {
+        console.error("Bir hata oluştu:", response.statusText);
+      }
+      onClose();
+      refreshPosts();
+    } catch (error) {
+      console.error("Bir hata oluştu:", error);
+    }
   };
 
   return (

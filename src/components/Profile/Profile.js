@@ -5,7 +5,7 @@ function Profile() {
   const { profileId } = useParams();
   return (
     <div>
-      <p>PROFILE PAGE - PP {profileId}</p>
+      <p>PROFILE PAGE - PROFILE ID : {profileId}</p>
     </div>
   );
 }
