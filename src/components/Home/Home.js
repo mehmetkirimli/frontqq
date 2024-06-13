@@ -14,7 +14,9 @@ function Home() {
       .then(
         (result) => {
           setIsLoaded(true);
-          setPostList(result.data); // postList'e result.data atandı.
+          setPostList(result.data);
+          // postList'e result.data atandı.
+          //06/13
         },
         (error) => {
           console.log(error);
